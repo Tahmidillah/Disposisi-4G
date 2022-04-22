@@ -8,6 +8,6 @@ class Menu extends CI_Controller
         $data = array(
             'content' => 'dashboard/index.php'
         );
-        $this->load->view('template/menu');
+        $this->load->view('template/main.php', $data);
     }
 }
