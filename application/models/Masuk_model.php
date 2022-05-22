@@ -72,8 +72,7 @@ class Masuk_model extends CI_Model
         $this->deleteImage($id);
         $this->db->where('id', $id)->delete($this->_table);
         if ($this->db->affected_rows() > 0) {
-            $this->session->set_flashdata("success", "Data user Berhasil D
-iDelete");
+            $this->session->set_flashdata("success", "Data user Berhasil DiDelete");
         }
     }
     private function deleteImage($id)
@@ -81,8 +80,23 @@ iDelete");
         $surat = $this->getById($id);
         if ($surat->image != "no_image.jpg") {
             $filename = explode(".", $surat->image)[0];
-            return array_map('unlink', glob(FCPATH . "assets/photo/
-surat_masuk/$filename.*"));
+            return array_map('unlink', glob(FCPATH . "assets/photo/surat_masuk/$filename.*"));
         }
+    }
+    public function saveAjuan()
+    {
+        $data = [
+            'no_surat' => $this->input->post('no_surat'),
+            'tgl_surat' => $this->input->post('tgl_surat'),
+            'surat_from' => $this->input->post('surat_from'),
+            'surat_to' => $this->input->post('surat_to'),
+            'tgl_terima' => '0000-00-00',
+            'perihal' => $this->input->post('perihal'),
+            'keterangan' => $this->input->post('keterangan'),
+            'image' => $this->uploadImage(),
+            'user_id' => $this->session->userdata('id'),
+            'is_active' => '1',
+        ];
+        $this->db->insert($this->_table, $data);
     }
 }
