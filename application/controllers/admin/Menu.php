@@ -6,16 +6,16 @@ class Menu extends CI_Controller
     public function index()
     {
         $data = array(
-            'content' => 'login/index.php'
+            'content' => 'dashboard/index'
         );
-        $this->load->view('template/main.php', $data);
+        $this->load->view('admin/template/main', $data);
     }
     public function add()
     {
-        $this->load->view('admin/user/add_form.php');
+        $this->load->view('admin/user/add_form');
     }
     public function edit()
     {
-        $this->load->view('admin/user/edit_form.php');
+        $this->load->view('admin/user/edit_form');
     }
 }

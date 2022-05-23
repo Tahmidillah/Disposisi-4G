@@ -5,15 +5,12 @@ $autoload['packages'] = array();
 
 $autoload['libraries'] = array('database', 'session');
 
-
 $autoload['drivers'] = array();
 
 $autoload['helper'] = array('url', 'pos');
 
 $autoload['config'] = array();
 
-
 $autoload['language'] = array();
-
 
 $autoload['model'] = array();

@@ -6,6 +6,8 @@ class Surat_ajuan extends CI_Controller
     {
         parent::__construct();
         $this->load->model("Masuk_model");
+        cek_login();
+        $this->load->library('form_validation');
     }
     public function index()
     {
